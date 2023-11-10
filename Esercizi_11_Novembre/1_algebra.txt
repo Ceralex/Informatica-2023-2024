@@ -1,0 +1,9 @@
+π (riviste.codice, riviste.nome) (riviste ⨝ (articoli.codR = riviste.codice) (articoli σ (articoli.argomento = 'motociclismo')));
+ 
+π (articoli) (riviste σ (riviste.nome = 'Focus')) ⨝ (articoli.codR = riviste.codice) (articoli σ (articoli.argomento = 'Intelligenza Artificiale'));
+ 
+π (riviste.nome) (riviste σ (riviste.editore = 'Einaudi') σ (riviste.nome = 'G%'));
+ 
+π (riviste.editore) (riviste ⨝ (riviste.codice = articoli.codR)) (articoli σ (articoli.argomento != 'AI'))
+ 
+π (riviste.nome) (riviste ⨝ (riviste.codice = articoli.codR)) (articoli σ (articoli.argomento = 'Motociclismo') OR (articoli.argomento = 'Automobilismo'))

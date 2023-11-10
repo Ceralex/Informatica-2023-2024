@@ -1,0 +1,11 @@
+π (velisti.nome) (velisti ⨝ (prenotazioni.velista_id = velisti.id) ⨝ (prenotazioni.barca_id = barche.id)) (σ (barche.colore = 'Rosso') ∪ σ (barche.colore = 'Verde'))
+
+π (barche.nome) (barche ⨝ (prenotazioni.barca_id = barche.id)) σ (prenotazioni.data LIKE '2023-11-%')
+
+π (velisti.nome) (σ velisti.esperienza = 'Base') AND (σ DATE.NOW() - velisti.dataDiNascita < (365 * 18))
+
+π (velisti.nome) (velisti ⨝ (prenotazioni.velista_id = velisti.id) ⨝ (prenotazioni.barca_id = barche.id)) (σ (barche.colore = 'Giallo') AND prenotazioni.data LIKE '2023-04-%')
+
+π (barche.nome) (velisti ⨝ (prenotazioni.velista_id = velisti.id) ⨝ (prenotazioni.barca_id = barche.id)) σ (velisti.esperienza = 'Senior')
+
+π (velisti.id) (velisti ⨝ (prenotazioni.velista_id = velisti.id) ⨝ (prenotazioni.barca_id = barche.id)) (σ (barche.colore != 'Rosso'))
